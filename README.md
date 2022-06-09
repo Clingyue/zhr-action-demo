@@ -30,7 +30,7 @@
    on:
    workflow_dispatch:
    schedule:
-      # `0 23 * * *` 表示UTC 23:00，即北京时间7:00打卡（经测试，实际运行时间比设定时间晚几分钟到几十分钟）。
+      # `0 23 * * *` 表示UTC 23:00，即北京时间7:00打卡（经测试，实际运行时间比设定时间晚几分钟到几十分钟）。  0 0 就是北京时间 8：00，可以这么设置，0 16 就是 凌晨 0：00
       # 可以参考 https://crontab.guru/ 进行配置
       - cron: '0 23 * * *'
    ```
@@ -39,7 +39,7 @@
 
      - 手机版钉钉 > 右上角添加 > 面对面建群 > 创建之后得到只有你一个人的群聊
      - 电脑版钉钉 > 群设置 > 智能群助手 > 添加机器人 > 自定义，名字随便填，安全设置选择`自定义关键字`，填`ZHR`，然后下一步复制Webhook。
-     - Settings > Secrets > Actions > New repository secret， 添加`DINGTALK_TOKEN`，内容为刚才复制的Webhook中 `access_token=` 后面的内容。
+     - Settings > Secrets > Actions > New repository secret， 添加`DINGTALK_TOKEN`，内容为刚才复制的Webhook中* `access_token=` 后面的内容*。==不要全部复制链接！否则会出现 token not exist 的错误！==
 
 5. 配置多人打卡（可选）
 
@@ -58,7 +58,7 @@
 
    Actions > I understand my workflows, go ahead and enable them
 
-   Actions > @zju-health-report/action Demo > Enable workflow > Run workflow。
+   Actions > @zju-health-report/action Demo > Enable workflow > Run workflow。   这里可以手动运行看看能不能成功，调试一下。
 
    Actions > Monthly Update Action > Enable workflow > Run workflow。
 
